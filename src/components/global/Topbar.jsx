@@ -1,6 +1,6 @@
 import { Box, IconButton, useTheme, Typography } from "@mui/material";
 import { useContext } from "react";
-import { ColorModeContext, tokens} from "../../theme";
+import { ColorModeContext, tokens } from "../../theme";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
@@ -8,7 +8,8 @@ import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 // import TuneRoundedIcon from '@mui/icons-material/TuneRounded';
 import MenuOpenRoundedIcon from '@mui/icons-material/MenuOpenRounded';
 import ExitToAppRoundedIcon from '@mui/icons-material/ExitToAppRounded';
-import {isMobile} from 'react-device-detect';
+import { isMobile } from 'react-device-detect';
+import { Link } from "react-router-dom";
 
 const Topbar = ({ showRightbar, setShowRightbar }) => {
   const theme = useTheme();
@@ -21,26 +22,34 @@ const Topbar = ({ showRightbar, setShowRightbar }) => {
     else setShowRightbar(true);
   }
 
+  function love() {
+
+  }
+
   return (
     <>
-      <Box display="flex" justifyContent="space-between" p={2}  sx={{
-          boxShadow: mode === 'dark' ? '#778 0px 1px 4px 0px' : '#aaa 0px 1px 4px 0px', 
-          position: 'sticky',
-          backgroundColor: mode === 'dark' ? colors.primary[500] : 'white',
-          top: 0
-        }}>
+      <Box display="flex" justifyContent="space-between" p={2} sx={{
+        boxShadow: mode === 'dark' ? '#778 0px 1px 4px 0px' : '#aaa 0px 1px 4px 0px',
+        position: 'sticky',
+        backgroundColor: mode === 'dark' ? colors.primary[500] : 'white',
+        top: 0
+      }}>
         {/* SEARCH BAR */}
         <Box
           display="flex"
         >
-          <Typography variant={isMobile ? 'h4' : 'h2'} color='#ff5544' sx={{
-            fontWeight: 'bold'
+          <Link to={'/'} style={{
+            textDecoration: 'bold'
           }}>
-            <IconButton onClick={handleRightbar}>
-              <img src="../../../favicon.ico" />
-            </IconButton>
-            FitnessBuddy
-          </Typography>
+            <Typography variant={isMobile ? 'h4' : 'h2'} color='#ff5544' sx={{
+              fontWeight: 600
+            }} className="hoverer">
+              <IconButton onClick={love} className="love">
+                <img src="../../../favicon.ico" />
+              </IconButton>
+              FitnessBuddy
+            </Typography>
+          </Link>
         </Box>
 
         {/* ICONS */}
@@ -69,9 +78,9 @@ const Topbar = ({ showRightbar, setShowRightbar }) => {
       {showRightbar ?
         ''
         :
-        <Box display="flex" justifyContent="right" mr={'25px'} onClick={handleRightbar} 
-        sx={{
-          borderLeft: mode === 'dark' ? '1px solid #555' : '1px solid #ccc',
+        <Box display="flex" justifyContent="right" mr={'25px'} onClick={handleRightbar}
+          sx={{
+            borderLeft: mode === 'dark' ? '1px solid #555' : '1px solid #ccc',
           }}>
           <Box textAlign="center">
             <Typography className="hoverer"

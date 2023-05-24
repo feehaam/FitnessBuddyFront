@@ -73,3 +73,15 @@ hr.styleY:before {
   cursor: pointer;
 }
 
+.love {
+  
+}
+
+.love:hover {
+  transition: width 2s, height 2s, transform 2s;
+  transform: rotate(990deg);
+}
+
+a{
+  text-decoration: none;
+}
