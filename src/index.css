@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,400;0,700;1,600&display=swap');
+
+html, body, #root, .app, .content {
+  height: 100%;
+  width: 100%;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.app{
+  display: flex;
+  position: relative;
+}
+
+::-webkit-scrollbar{
+  width: 10px;
+}
+
+::-webkit-scrollbar-track{
+  background: #e0e0e0;
+}
+
+::-webkit-scrollbar-thumb{
+  background: #888;
+}
+
+::-webkit-scrollbar-track:hover{
+  background: #555;
+}
+
+
+hr.styleX {
+  overflow: visible; 
+  height: 30px;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px 0 0 0;
+  border-radius: 20px;
+}
+hr.styleX:before { 
+  display: block;
+  content: "";
+  height: 30px;
+  margin-top: -31px;
+  border-style: solid;
+  border-color: black;
+  border-width: 0 0 1px 0;
+  border-radius: 20px;
+}
+
+hr.styleY {
+  overflow: visible; 
+  height: 30px;
+  border-style: solid;
+  border-color: rgb(207, 216, 255);
+  border-width: 1px 0 0 0;
+  border-radius: 20px;
+}
+hr.styleY:before { 
+  display: block;
+  content: "";
+  height: 30px;
+  margin-top: -31px;
+  border-style: solid;
+  border-color: rgb(207, 216, 255);
+  border-width: 0 0 1px 0;
+  border-radius: 20px;
+}
+
+.hoverer{
+
+}
+.hoverer:hover{
+  cursor: pointer;
+}
+
