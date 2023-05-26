@@ -15,9 +15,9 @@ import FitnessCenterRoundedIcon from '@mui/icons-material/FitnessCenterRounded';
 import AccountBoxRoundedIcon from '@mui/icons-material/AccountBoxRounded';
 import SettingsApplicationsRoundedIcon from '@mui/icons-material/SettingsApplicationsRounded';
 import ExitToAppRoundedIcon from '@mui/icons-material/ExitToAppRounded';
-import {isMobile} from 'react-device-detect';
+import { isMobile } from 'react-device-detect';
 
-const LeftBar = () => {
+const LeftBar = ({ changePage }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const mode = theme.palette.mode;
@@ -86,20 +86,21 @@ const LeftBar = () => {
                   sx={{ m: "10px 0 0 0" }}
                 >
                   Muhammad Feeham
-                  {mode === 'dark' ? <hr className="styleY"/> : <hr className="styleX"/>}
+                  {mode === 'dark' ? <hr className="styleY" /> : <hr className="styleX" />}
                 </Typography>
               </Box>
             </Box>
           )}
 
           <Box paddingLeft={isCollapsed ? undefined : "10%"}>
-            <MenuItem 
-                component={<Link to="/"/>} 
-                icon={<CottageRoundedIcon />}
-                selected={selected}
-                setSelected={setSelected}>Home
+            <MenuItem
+              onClick={() => changePage('FitnessBuddy')}
+              component={<Link to="/" />}
+              icon={<CottageRoundedIcon />}
+              selected={selected}
+              setSelected={setSelected}>Home
             </MenuItem>
-            
+
 
             <Typography
               variant="h6"
@@ -107,23 +108,26 @@ const LeftBar = () => {
               sx={{ m: "15px 0 5px 20px" }}>
               Activities
             </Typography>
-            <MenuItem 
-                component={<Link to="/diet"/>} 
-                icon={<FoodBankRoundedIcon />}
-                selected={true}
-                setSelected={setSelected}>Diet
+            <MenuItem
+              onClick={() => changePage('Diet')}
+              component={<Link to="/diet" />}
+              icon={<FoodBankRoundedIcon />}
+              selected={true}
+              setSelected={setSelected}>Diet
             </MenuItem>
-            <MenuItem 
-                component={<Link to="/exercise"/>} 
-                icon={<RunCircleRoundedIcon />}
-                selected={selected}
-                setSelected={setSelected}>Exercises
+            <MenuItem
+              onClick={() => changePage('Exercise')}
+              component={<Link to="/exercise" />}
+              icon={<RunCircleRoundedIcon />}
+              selected={selected}
+              setSelected={setSelected}>Exercises
             </MenuItem>
-            <MenuItem 
-                component={<Link to="/total-stats"/>} 
-                icon={<DomainAddRoundedIcon />}
-                selected={selected}
-                setSelected={setSelected}>Total Stats
+            <MenuItem
+              onClick={() => changePage('Total Stats')}
+              component={<Link to="/total-stats" />}
+              icon={<DomainAddRoundedIcon />}
+              selected={selected}
+              setSelected={setSelected}>Total Stats
             </MenuItem>
 
             <Typography
@@ -132,29 +136,33 @@ const LeftBar = () => {
               sx={{ m: "15px 0 5px 20px" }}>
               Health
             </Typography>
-            <MenuItem 
-                component={<Link to="/plans"/>} 
-                icon={<AdsClickIcon />}
-                selected={selected}
-                setSelected={setSelected}>Plans
+            <MenuItem
+              onClick={() => changePage('Plans')}
+              component={<Link to="/plans" />}
+              icon={<AdsClickIcon />}
+              selected={selected}
+              setSelected={setSelected}>Plans
             </MenuItem>
-            <MenuItem 
-                component={<Link to="/guides"/>} 
-                icon={<ForkRightIcon />}
-                selected={selected}
-                setSelected={setSelected}>Guides
+            <MenuItem
+              onClick={() => changePage('Guides')}
+              component={<Link to="/guides" />}
+              icon={<ForkRightIcon />}
+              selected={selected}
+              setSelected={setSelected}>Guides
             </MenuItem>
-            <MenuItem 
-                component={<Link to="/nutritions"/>} 
-                icon={<FitbitRoundedIcon />}
-                selected={selected}
-                setSelected={setSelected}>Nutritions
+            <MenuItem
+              onClick={() => changePage('Nutritions')}
+              component={<Link to="/nutritions" />}
+              icon={<FitbitRoundedIcon />}
+              selected={selected}
+              setSelected={setSelected}>Nutritions
             </MenuItem>
-            <MenuItem 
-                component={<Link to="/workouts"/>} 
-                icon={<FitnessCenterRoundedIcon />}
-                selected={selected}
-                setSelected={setSelected}>Workouts
+            <MenuItem
+              onClick={() => changePage('Workouts')}
+              component={<Link to="/workouts" />}
+              icon={<FitnessCenterRoundedIcon />}
+              selected={selected}
+              setSelected={setSelected}>Workouts
             </MenuItem>
 
 
@@ -164,23 +172,26 @@ const LeftBar = () => {
               sx={{ m: "15px 0 5px 20px" }}>
               Account
             </Typography>
-            <MenuItem 
-                component={<Link to="/profile"/>} 
-                icon={<AccountBoxRoundedIcon />}
-                selected={selected}
-                setSelected={setSelected}>Profile
+            <MenuItem
+              onClick={() => changePage('Profile')}
+              component={<Link to="/profile" />}
+              icon={<AccountBoxRoundedIcon />}
+              selected={selected}
+              setSelected={setSelected}>Profile
             </MenuItem>
-            <MenuItem 
-                component={<Link to="/settings"/>} 
-                icon={<SettingsApplicationsRoundedIcon />}
-                selected={selected}
-                setSelected={setSelected}>Settings
+            <MenuItem
+              onClick={() => changePage('Settings')}
+              component={<Link to="/settings" />}
+              icon={<SettingsApplicationsRoundedIcon />}
+              selected={selected}
+              setSelected={setSelected}>Settings
             </MenuItem>
-            <MenuItem 
-                component={<Link to="/signout"/>} 
-                icon={<ExitToAppRoundedIcon />}
-                selected={selected}
-                setSelected={setSelected}>Sign out
+            <MenuItem
+              onClick={() => changePage('Signout')}
+              component={<Link to="/signout" />}
+              icon={<ExitToAppRoundedIcon />}
+              selected={selected}
+              setSelected={setSelected}>Sign out
             </MenuItem>
           </Box>
         </Menu>

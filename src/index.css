@@ -85,3 +85,21 @@ hr.styleY:before {
 a{
   text-decoration: none;
 }
+
+.graph-item{
+  
+}
+
+.graphs-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+
+
+
+
+
+
+

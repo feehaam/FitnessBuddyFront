@@ -11,7 +11,7 @@ import ExitToAppRoundedIcon from '@mui/icons-material/ExitToAppRounded';
 import { isMobile } from 'react-device-detect';
 import { Link } from "react-router-dom";
 
-const Topbar = ({ showRightbar, setShowRightbar }) => {
+const Topbar = ({ showRightbar, setShowRightbar, page }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const colorMode = useContext(ColorModeContext);
@@ -28,7 +28,7 @@ const Topbar = ({ showRightbar, setShowRightbar }) => {
 
   return (
     <>
-      <Box display="flex" justifyContent="space-between" p={2} sx={{
+      <Box display="flex" justifyContent="space-between" p={2} zIndex={20} sx={{
         boxShadow: mode === 'dark' ? '#778 0px 1px 4px 0px' : '#aaa 0px 1px 4px 0px',
         position: 'sticky',
         backgroundColor: mode === 'dark' ? colors.primary[500] : 'white',
@@ -38,18 +38,14 @@ const Topbar = ({ showRightbar, setShowRightbar }) => {
         <Box
           display="flex"
         >
-          <Link to={'/'} style={{
-            textDecoration: 'bold'
-          }}>
-            <Typography variant={isMobile ? 'h4' : 'h2'} color='#ff5544' sx={{
-              fontWeight: 600
-            }} className="hoverer">
-              <IconButton onClick={love} className="love">
-                <img src="../../../favicon.ico" />
-              </IconButton>
-              FitnessBuddy
-            </Typography>
-          </Link>
+          <Typography variant={isMobile ? 'h4' : 'h2'} color='#ff5544' sx={{
+            fontWeight: 600
+          }} className="hoverer">
+            <IconButton onClick={love} className="love">
+              <img src="../../../favicon.ico" />
+            </IconButton>
+            {page}
+          </Typography>
         </Box>
 
         {/* ICONS */}
@@ -75,7 +71,7 @@ const Topbar = ({ showRightbar, setShowRightbar }) => {
           </IconButton>
         </Box>
       </Box>
-      {showRightbar ?
+      {/* {showRightbar ?
         ''
         :
         <Box display="flex" justifyContent="right" mr={'25px'} onClick={handleRightbar}
@@ -98,7 +94,7 @@ const Topbar = ({ showRightbar, setShowRightbar }) => {
             </Typography>
           </Box>
         </Box>
-      }
+      } */}
     </>
   );
 };

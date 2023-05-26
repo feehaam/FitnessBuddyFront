@@ -21,20 +21,25 @@ function App() {
 
   const [theme, colorMode] = useMode();
   const [showRightbar, setShowRightbar] = useState(!isMobile);
+  const [page, setPage] = useState("FitnessBuddy")
   const mode = theme.palette.mode;
+
+  function changePage(title){
+    setPage(title);
+  }
 
   return (
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <div className='app'>
-          <LeftBar />
+          <LeftBar changePage={changePage} />
           <main className='content'>
-            <Topbar showRightbar={showRightbar} setShowRightbar={setShowRightbar} />
-            {showRightbar ? <RightBar showRightbar={showRightbar} setShowRightbar={setShowRightbar} /> : ""}
+            <Topbar showRightbar={showRightbar} setShowRightbar={setShowRightbar} page={page} />
+            {/* {showRightbar ? <RightBar showRightbar={showRightbar} setShowRightbar={setShowRightbar} /> : ""} */}
             <div style={{
+              minHeight: '100%',
               borderLeft: mode === 'dark' ? '1px solid #555' : '1px solid #ccc',
-              borderBottom: mode === 'dark' ? '1px solid #555' : '1px solid #ccc',
               padding: '15px'
             }}>
               <Routes>

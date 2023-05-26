@@ -13,6 +13,9 @@ const RightBar = ({ showRightbar, setShowRightbar }) => {
 
   return (
     <Box sx={{
+        position: 'fixed',
+        top: 70,
+        right: 10,
         float: 'right',
         marginLeft: '10px',
         marginTop: '10px',
@@ -24,14 +27,14 @@ const RightBar = ({ showRightbar, setShowRightbar }) => {
       }}>
         <Box textAlign="center">
                 <Typography
-                  variant="h3"
+                  variant="h2"
                   color={colors.grey[100]}
                   fontWeight="bold"
                   sx={{ m: "10px 0 0 0" }}
                   backgroundColor={colors.primary[400]}
                   borderRadius="3px"
                   p={1}>
-                  Add daily activity
+                    Add foods and exercises
                   <IconButton onClick={handleRightbar}>
                     <CloseRoundedIcon />
                   </IconButton>
