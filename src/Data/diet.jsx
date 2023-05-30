@@ -186,45 +186,45 @@ export const water = [
 export const weeklyCPF = [
   {
       "name": "Monday",
-      "carbohydrate": 500,
-      "protein": 380,
-      "fat": 213
+      "A": 500,
+      "B": 380,
+      "C": 213
   },
   {
       "name": "Tuesday",
-      "carbohydrate": 420,
-      "protein": 250,
-      "fat": 180
+      "A": 420,
+      "B": 250,
+      "C": 180
   },
   {
       "name": "Wednesday",
-      "carbohydrate": 600,
-      "protein": 300,
-      "fat": 250
+      "A": 600,
+      "B": 300,
+      "C": 250
   },
   {
       "name": "Thursday",
-      "carbohydrate": 490,
-      "protein": 410,
-      "fat": 150
+      "A": 490,
+      "B": 410,
+      "C": 150
   },
   {
       "name": "Friday",
-      "carbohydrate": 520,
-      "protein": 350,
-      "fat": 190
+      "A": 520,
+      "B": 350,
+      "C": 190
   },
   {
       "name": "Saturday",
-      "carbohydrate": 480,
-      "protein": 280,
-      "fat": 220
+      "A": 480,
+      "B": 280,
+      "C": 220
   },
   {
       "name": "Sunday",
-      "carbohydrate": 430,
-      "protein": 320,
-      "fat": 230
+      "A": 430,
+      "B": 320,
+      "C": 230
   }
 ]
 
