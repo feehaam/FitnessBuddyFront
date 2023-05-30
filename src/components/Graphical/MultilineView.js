@@ -4,7 +4,7 @@ import styles from '../Graphical/PieView.module.css'
 import PieItem from "./PieItem"
 import { useTheme } from "@mui/material";
 
-function MultilineView({ title, data, description, colors}) {
+function MultilineView({ title, data, description, colors, key1, key2, key3}) {
 
     const theme = useTheme();
     const mode = theme.palette.mode;
@@ -23,36 +23,51 @@ function MultilineView({ title, data, description, colors}) {
                             <YAxis />
                             <Tooltip />
                             <Legend />
+                            {key2 !== null ? 
                             <Line
                                 type="monotone"
-                                dataKey="protein"
+                                dataKey={key2}
                                 stroke="#8884d8"
                                 activeDot={{ r: 8 }}
-                            />
+                            /> : "" };
+                            {key3 !== null ? 
                             <Line
                                 type="monotone"
-                                dataKey="fat"
+                                dataKey={key3}
                                 stroke="#ff66ff"
                                 activeDot={{ r: 8 }}
-                            />
-                            <Line type="monotone" dataKey="carbohydrate" stroke="#82ca9d" />
+                            /> : "" };
+                            <Line type="monotone" dataKey={key1} stroke="#82ca9d" />
                         </LineChart>
                     </div>
                     <div className={styles.title}>
                         {title}
                     </div>
                     <div style={{ display: 'flex', flexWrap: 'wrap', alignContent: 'justify' }}>
-                    {data.map((entry, index) => (
-                        <PieItem
-                            key={`cell-${index}`}
-                            entry={{
-                                'name': entry.name,
-                                'value': entry.carbohydrate+"+"+entry.protein+"+"+entry.fat
-                            }}
-                            color={mode === 'dark' ? 'black' : 'white'}
-                            bgcolor={colors[index]}
-                        />
-                    ))}
+                        {key2 == null ? 
+                            data.map((entry, index) => (
+                                <PieItem
+                                    key={`cell-${index}`}
+                                    entry={{
+                                        'name': entry.name,
+                                        'value': entry.calories
+                                    }}
+                                    color={mode === 'dark' ? 'black' : 'white'}
+                                    bgcolor={colors[index]}
+                                />
+                            )) 
+                            : 
+                            data.map((entry, index) => (
+                            <PieItem
+                                key={`cell-${index}`}
+                                entry={{
+                                    'name': entry.name,
+                                    'value': entry.carbohydrate+"+"+entry.protein+"+"+entry.fat
+                                }}
+                                color={mode === 'dark' ? 'black' : 'white'}
+                                bgcolor={colors[index]}
+                            />
+                        ))}
                     </div>
                 </div>
             </div>

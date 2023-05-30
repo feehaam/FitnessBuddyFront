@@ -5,10 +5,9 @@ import { randomColorArray } from '../Graphical/RandomColor';
 import { Box, Button, IconButton, useTheme } from "@mui/material";
 import { useState } from 'react';
 import PublishedWithChangesOutlinedIcon from '@mui/icons-material/PublishedWithChangesOutlined';
-import { weeklyJson, water, monthlyJson, weeklyCPF, mostAte, biggestMeals } from '../../Data/diet';
 import MultibarView from '../Graphical/MultibarView';
 import MultilineView from '../Graphical/MultilineView';
-import { burnedFromEx, frequentEx } from '../../Data/exercise';
+import { burnedFromEx, frequentEx, topEx } from '../../Data/exercise';
 import { tokens } from '../../theme';
 
 
@@ -85,9 +84,9 @@ const Exercise = () => {
       </div>
       <div  style={{margin: '10px', backgroundColor: colors.grey[900], textAlign: 'center', borderRadius: '5px'}}><h2>Top exercise statistics</h2></div>
       <div className='graphs-container'>
-        <BarView title={'Burned from exercise'} data={burnedFromEx} colors={randomColorArray(burnedFromEx.length, graphColor)} description={type + ' view of your daily intake calories. Each block of the graph shows amount of calories you ate a day.'} />
-        <PieView title={'Burned from exercise'} data={burnedFromEx} colors={randomColorArray(burnedFromEx.length, graphColor)} size={10} description={type + ' view of your daily intake calories. Each block of the graph shows amount of calories you ate a day.'} />
-        <BarView title={'Most frequent workouts'} data={frequentEx} colors={randomColorArray(frequentEx.length, graphColor)} description={type+' view of foods that you ate most in ascending order'} />
+        <BarView title={topEx.parameter1.title} data={topEx.parameter1.data} colors={randomColorArray(topEx.parameter1.data.length, graphColor)} description={type + ' view of your daily intake calories. Each block of the graph shows amount of calories you ate a day.'} />
+        <PieView title={topEx.parameter2.title} data={topEx.parameter2.data} colors={randomColorArray(topEx.parameter2.data.length, graphColor)} size={10} description={type + ' view of your daily intake calories. Each block of the graph shows amount of calories you ate a day.'} />
+        <MultilineView title={topEx.parameter3.title} data={topEx.parameter3.data} key1={'calories'} colors={randomColorArray(topEx.parameter3.data.length, graphColor)} description={type + ' view of your daily intake calories from carbohydrate, protein and fat. Each block of the graph shows 3 bars presenting 3 different amount of nutritions you ate a day.'} />
       </div>
     </div>
   )
