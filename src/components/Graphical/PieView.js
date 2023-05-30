@@ -13,35 +13,40 @@ export default function PieView({ title, data, description, colors, size }) {
             <div className={styles.description}>
                 {description}
             </div>
-            <div className={styles.visual}>
-                <PieChart width={25 * size} height={25 * size}>
-                    <Pie data={data} cx="50%" cy="50%" outerRadius={8 * size} label>
-                        {
-                            data.map((entry, index) => (
-                                <Cell
-                                    key={`cell-${index}`}
-                                    fill={colors[index]}
-                                />
-                            ))
-                        }
-                    </Pie>
-                </PieChart>
-            </div>
-            <div className={styles.title}>
-                {title}
-            </div>
-            <div style={{ display: 'flex', flexWrap: 'wrap', alignContent: 'justify' }}>
-                {data.map((entry, index) => (
-                    <PieItem
-                        key={`cell-${index}`}
-                        entry={entry}
-                        color={mode === 'dark' ? 'black' : 'white'}
-                        bgcolor={colors[index]}
-                    />
-                ))}
+            <div className={styles.innercont}>
+                <div className={styles.visual}>
+                    <PieChart width={25 * size} height={25 * size}>
+                        <Pie data={data} cx="50%" cy="50%" outerRadius={8 * size} label>
+                            {
+                                data.map((entry, index) => (
+                                    <Cell
+                                        key={`cell-${index}`}
+                                        fill={colors[index]}
+                                    />
+                                ))
+                            }
+                        </Pie>
+                    </PieChart>
+                </div>
+                <div className={styles.title}>
+                    {title}
+                </div>
+                <div style={{ display: 'flex', flexWrap: 'wrap', alignContent: 'justify' }}>
+                    {data.map((entry, index) => (
+                        <PieItem
+                            key={`cell-${index}`}
+                            entry={entry}
+                            color={mode === 'dark' ? 'black' : 'white'}
+                            bgcolor={colors[index]}
+                        />
+                    ))}
+                </div>
             </div>
             <br></br>
 
         </div>
     </div>)
 }
+
+{/* <PieView title={'Calories burned from diet'} data={weeklyJson} colors={randomColorArray(weeklyJson.length, graphColor)} size={10} description={type + ' view of your daily intake calories. Each block of the graph shows amount of calories you ate a day.'} />
+         */}
