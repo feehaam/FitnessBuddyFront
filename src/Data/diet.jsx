@@ -250,3 +250,26 @@ export const mostAte = [
     "value": 496
   }
 ];
+
+export const biggestMeals = [
+  {
+    "name": "Breakfast",
+    "value": 1233
+  },
+  {
+    "name": "Lunch",
+    "value": 3578
+  },
+  {
+    "name": "Dinner",
+    "value": 1718
+  },
+  {
+    "name": "Snacks",
+    "value": 400
+  },
+  {
+    "name": "Ramaining",
+    "value": 4278
+  }
+];
